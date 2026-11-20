@@ -36,4 +36,44 @@ Este repositório reúne a evolução do projeto desenvolvido durante as **5 aul
 ## 🛠️ Tecnologias Utilizadas
 * **Python** (`pandas`, `numpy`, `difflib`)
 * **Visualização de Dados** (`matplotlib`, `seaborn`)
-* **Excel** (`.xlsx`)
+* **Excel** (`.xlsx`)# 📊 Análise e Visualização de Dados — Campe Supply
+
+Este repositório reúne o processo de limpeza, tratamento, análise exploratória e visualização de dados desenvolvido durante as **5 aulas de capacitação** da Empresa Júnior (EJ). O fluxo parte da base bruta (`Campe_Supply_Corrompido.xlsx`, aba `Campe Supply`), passa pela base tratada (`Campe_Supply_Limpo.xlsx`)[cite: 1, 2] e chega à construção de indicadores, rankings, tabelas dinâmicas e gráficos para apresentação ao cliente.
+
+---
+
+## 🗺️ Jornada das Aulas
+
+### 🔹 Aula 01 — Inspeção Inicial e Padronização Estrutural
+- Inspeção inicial da base de dados, identificação do número de linhas e diagnóstico dos tipos de dados das colunas.
+- Remoção de colunas desnecessárias e de registros duplicados logo no início do tratamento.
+- Padronização dos nomes das colunas com conversão para minúsculas, remoção de espaços extras, troca de espaços por `_` e substituição de caracteres acentuados (como `ã` por `a`).
+
+### 🔹 Aula 02 — Tratamento Textual e Recuperação de Nulos por Regra de Negócio
+- Identificação de erros de digitação e variações textuais em colunas categóricas (como `setor`, `produto`, `vendedor`, `regiao`, `estado` e `cliente`).
+- Padronização automatizada com função de similaridade textual (`get_close_matches`) aplicando corte de **0.6 (60%)** em relação às categorias oficiais.
+- Recuperação de valores nulos por meio de regras de negócio e cruzamento de atributos, preenchendo `setor` a partir de `produto` e `regiao` a partir de `estado`.
+
+### 🔹 Aula 03 — Tipagem, Consistência Matemática e Segunda Limpeza de Duplicatas
+- Conversão das colunas financeiras (`faturamento`, `margem_de_lucro`, `lucro`) para formato numérico e preparação dos demais campos.
+- Correção de inconsistências matemáticas discrepantes (como registros com lucro superior ao faturamento ou margem zerada com lucro positivo).
+- Recuperação de valores nulos numéricos usando a relação entre faturamento, margem de lucro e lucro, seguida de uma segunda remoção de duplicatas após a padronização e extração da coluna `mes` a partir de `data_da_venda`.
+
+### 🔹 Aula 04 — Indicadores, Rankings e Tabelas Dinâmicas
+- Consolidação dos dados limpos para o cálculo dos indicadores da empresa (como faturamento e lucro).
+- Estruturação de rankings para avaliar a performance por **vendedor**, **setor** e **produto**.
+- Montagem de **tabelas dinâmicas** para cruzar dimensões e facilitar a leitura comparativa dos resultados antes da etapa gráfica.
+
+
+### 🔹 Aula 05 — Visualização de Dados e Apresentação ao Cliente
+- Criação de visualizações com `matplotlib` e `seaborn` para transformar os resultados da análise em gráficos de leitura rápida.
+- Plotagem de gráfico de linha da **evolução mensal do faturamento** (de `Jan` a `Dez`) e demais gráficos de apoio para sustentar a apresentação ao cliente[cite: 3].
+
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+- **Linguagem:** Python
+- **Manipulação e Limpeza:** `pandas`, `numpy`, `difflib`
+- **Visualização de Dados:** `matplotlib`, `seaborn`
+- **Planilhas:** Excel (`.xlsx`)[cite: 1, 2]
